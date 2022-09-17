@@ -19,14 +19,20 @@
     <div class="alert alert-success my-3" style="display: none;" id="pesanbenar"></div>
     <form id="form" method="post" id="formExample">
         <h2 class="my-3 text-capitalize">silahkan tebak jawabanya</h2>
+        <div class="card my-3">
+            <div class="card-header"><h3 class="my-3 text-transform">CLUE : </h3></div>
+            <div class="card-body">
+                <span id="klu"></span>
+            </div>
+        </div>
     <div class="mb-3">
-        <label for="pemain1" class="form-label">Angka satu</label>
+        <label for="pemain1" class="form-label">Silahkan Masukan Angka</label>
         <input type="number" class="form-control" id="pemain1" name="pemain1" onkeypress="return hanyaangka(event)">
     </div>
     <button type="button" class="btn btn-primary my-3" onclick="output()">Submit</button>
     </form>
 </div>
-<footer class="bg-dark text-white text-center fixed-bottom" style="height: 100px;">
+<footer class="bg-dark text-white text-center" style="height: 300px;">
     <p class="pt-5">&copy;copyright <strong id="tahunfooter"></strong> Achmad Fadli Iskandar - Rizky Andiansah</p>
 </footer>
 <!-- JavaScript Bundle with Popper -->
@@ -50,6 +56,11 @@ function output(){
     if (x == "") {
         alert('dilarang kosong ya')
     } else {
+        if (angka_tebak < 5) {
+            document.getElementById("klu").innerHTML = "jawabanya dibawah 5";
+        } else {
+            document.getElementById("klu").innerHTML = "jawabanya diatas 5";
+        }
         // alert(jawabany)
         if(x == angka_tebak){
             document.getElementById("pesanbenar").style.display = "block";
